@@ -110,7 +110,8 @@
 
 <body>
     <div class="container">
-        <h2 style="color: #008000;">Calculator</h2>
+        <h2 style="color: #008000;">Calculator by Zohaib Sarwar</h2>
+        
         <div class="card">
 
             <input type="number" id="cards" placeholder="Number of Cards" oninput="calculate()">
@@ -124,6 +125,11 @@
         <div class="card">
             <input type="number" id="email" placeholder="Number of emails" oninput="calculate()">
         </div>
+        
+        <div class="card">
+            <input type="number" id="domain" placeholder="Number of domains" oninput="calculate()">
+        </div>
+
         <div class="bottom">
             <div class="result">Total: <span id="result"></span></div>
             <div class="button">
@@ -138,13 +144,15 @@
             let passports = document.getElementById("passports").value || 0;
             let sets = document.getElementById("sets").value || 0;
             let email = document.getElementById("email").value || 0;
+            let domain = document.getElementById("domain").value || 0;
 
             cards = parseInt(cards) * 1200;
             passports = parseInt(passports) * 1000;
             sets = parseInt(sets) * 2500;
             email = parseInt(email) * 2028;
+            domain = parseInt(domain) * 5527;
 
-            var total = cards + passports + sets + email;
+            var total = cards + passports + sets + email + domain;
             document.getElementById("result").innerHTML = total;
             document.getElementById("result").style.animation = "fadeIn 1s";
         }
@@ -154,6 +162,7 @@
             document.getElementById("passports").value = "";
             document.getElementById("sets").value = "";
             document.getElementById("email").value = "";
+            document.getElementById("domain").value = "";
             document.getElementById("result").innerHTML = "";
         }
     </script>
