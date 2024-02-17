@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card {
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        input[type="number"] {
+            width: 500px;
+            padding: 10px;
+            margin-left: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+
+            transition: border-color 0.3s;
+        }
+
+        input[type="number"]:focus {
+            border-color: dodgerblue;
+            outline: none;
+        }
+
+        #result {
+            font-size: 20px;
+            color: green;
+            font-weight: bold;
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #008000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #000000;
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            margin-right: 10px;
+        }
+
+        .result {
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            color: green;
+            font-weight: bold;
+            animation: fadeIn 1s;
+            margin-top: 20px;
+            margin-left: 12px;
+        }
+
+        .bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 style="color: #008000;">Calculator</h2>
+        <div class="card">
+
+            <input type="number" id="cards" placeholder="Number of Cards" oninput="calculate()">
+        </div>
+        <div class="card">
+            <input type="number" id="passports" placeholder="Number of Passports" oninput="calculate()">
+        </div>
+        <div class="card">
+            <input type="number" id="sets" placeholder="Number of Sets" oninput="calculate()">
+        </div>
+        <div class="card">
+            <input type="number" id="email" placeholder="Number of emails" oninput="calculate()">
+        </div>
+        <div class="bottom">
+            <div class="result">Total: <span id="result"></span></div>
+            <div class="button">
+                <button onclick="clearValues()">Clear Values</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            let cards = document.getElementById("cards").value || 0;
+            let passports = document.getElementById("passports").value || 0;
+            let sets = document.getElementById("sets").value || 0;
+            let email = document.getElementById("email").value || 0;
+
+            cards = parseInt(cards) * 1200;
+            passports = parseInt(passports) * 1000;
+            sets = parseInt(sets) * 2500;
+            email = parseInt(email) * 2028;
+
+            var total = cards + passports + sets + email;
+            document.getElementById("result").innerHTML = total;
+            document.getElementById("result").style.animation = "fadeIn 1s";
+        }
+
+        function clearValues() {
+            document.getElementById("cards").value = "";
+            document.getElementById("passports").value = "";
+            document.getElementById("sets").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("result").innerHTML = "";
+        }
+    </script>
+</body>
+
+</html>
